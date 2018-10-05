@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar text-center>
+    <button ion-button menuToggle text-left>
+      <ion-icon name="menu" class="sandwich"></ion-icon>
+    </button>
+    <ion-title>Settings</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="has-header dark-background">
+  <ion-list no-lines>
+    <button ion-item [navPush]="changePasswordPage" class="change-password-item settings-input" detail-none>
+      Change Password
+      <ion-icon name="arrow-forward" color="light" item-end></ion-icon>
+    </button>
+    <ion-item class="item-checkbox-right settings-input">
+      <ion-label>Receive Blog Notifications</ion-label>
+      <ion-checkbox type="checkbox" [(ngModel)]="settingsData.blogNotif" checked="settingsData.blogNotif" (click)="notificationSettings('blogNotif')" item-end></ion-checkbox>
+    </ion-item>
+    <ion-item class="settings-input">
+      <ion-label>Receive Tip Notifications</ion-label>
+      <ion-checkbox type="checkbox" [(ngModel)]="settingsData.tipNotif" checked="settingsData.tipNotif" (click)="notificationSettings('tipNotif')" item-end></ion-checkbox>
+    </ion-item>
+    <ion-item class="settings-back-buttons settings-input">
+      <a (click)="goTipsters()" class="settings-back-tips settings-input">
+        <span class="text-center">Return to tips</span>
+      </a>
+      <a (click)="goHome()" class="settings-back-blogs settings-input">
+        <span class="text-center">Return to Blogs</span>
+      </a>
+    </ion-item>
+  </ion-list>
+</ion-content>

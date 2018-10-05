@@ -1,0 +1,4 @@
+<ion-tabs [ngClass]="{'no-height': false}" [selectedIndex]="selectedTab">
+  <ion-tab tabIcon="document" tabTitle="Blogs" [root]="blogsPage"></ion-tab>
+  <ion-tab [show]="token" tabIcon="trending-up" tabTitle="My Tipsters" [root]="myTipstersPage"></ion-tab>
+</ion-tabs>

@@ -1,0 +1,73 @@
+page-settings {
+    ion-navbar {
+        color: $orange;
+        box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+      }
+    
+      .toolbar-background-md,
+      .toolbar-background-ios {
+        background: #696969;
+      }
+    
+      ion-title .toolbar-title-md,
+      ion-title .toolbar-title-ios {
+        color: #fff;
+      }
+      ion-title .toolbar-title-md {
+        transform: translateX(-8%);
+      }
+    
+      .ion-md-menu,
+      .ion-ios-menu {
+        color: $orange !important;
+        z-index: 100 !important;
+        font-size: 31px;
+      }
+
+      .change-password-button {
+        background: #fa6800;
+        color: #ffffff;
+        font-size: 1.1em;
+        font-weight: bold;
+      }
+      
+      .dark-background{
+        background: #6f6e68;
+        color: $orange !important;
+      }
+      
+      .settings-input {
+        border-width: 1px 0;
+        color: $orange !important;
+        background-color: #565656 !important;
+        border-color: #6f6e68 !important;
+      }
+
+      .list-md[no-lines] .item-checkbox-right.item-block,
+      .list-ios[no-lines] .item-checkbox-right.item-block {
+          border-bottom: 2px solid #ddd;
+      }
+      .checkbox-md .checkbox-checked,
+      .checkbox-ios .checkbox-checked {
+        background: #fa6800;
+        border-color: #fa6800;
+    }
+
+    .checkbox-md .checkbox-checked .checkbox-inner,
+    .checkbox-ios .checkbox-checked .checkbox-inner {
+      left: 10px;
+      top: 5px;
+      width: 7px;
+      height: 15px;
+      border-right-width: 1px;
+      border-bottom-width: 1px;
+    }
+
+    .checkbox-md .checkbox-icon,
+    .checkbox-ios .checkbox-icon {
+        border-radius: 28px;
+        width: 28px;
+        height: 28px;
+        border: none;
+    }
+}

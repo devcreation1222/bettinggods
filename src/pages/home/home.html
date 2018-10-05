@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar text-center>
+    <button ion-button menuToggle text-left>
+      <ion-icon name="menu" class="sandwich"></ion-icon>
+    </button>
+    <ion-title><img src="assets/imgs/logo-horse.png"></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<div class="bar bar-subheader bar-custom-subheader">
+  <div text-center>
+    <a (click)="showCategories()">
+      <h1 class="titlle">Category: {{currentCategory}}</h1>
+      <ion-icon name="menu" class="sandwich"></ion-icon>
+    </a>
+  </div>
+  <ion-list [ngClass]="{'not-shown': notShown, 'categories': true}">
+    <ion-item class="category-item" (click)="chooseCategory('All', '')">
+      <h4>All</h4>
+    </ion-item>
+    <ion-item *ngFor="let cat of categories" class="category-item" (click)="chooseCategory(cat.title, cat.id)">
+      <h4>{{cat.title}}</h4>
+    </ion-item>
+  </ion-list>
+</div>
+<img src="assets/imgs/spinner.svg" *ngIf="isRefresher" class="custom-refresher" />
+<ion-content class="has-header has-subheader blogs dark-background">
+  <ion-refresher (ionRefresh)="loadBlogs($event, 1, blogs)">
+    <ion-refresher-content pullingIcon="arrow-down" refreshingSpinner="bubbles">
+    </ion-refresher-content>
+  </ion-refresher>
+  <div>
+    <ion-item class="item-image blog-item-custom" *ngFor="let blog of blogs" type="item-text-wrap" [navPush]="blogPage"
+      [navParams]="blog.id" text-center>
+      <div class="blog-gradient" [ngStyle]="{'background-image': 'linear-gradient(to bottom, rgba(89, 89, 89, 0) 50%, rgba(89, 89, 89, 0.45) 70%, rgba(0, 0, 0, 0.98) 100%), ' + 'url(' + blog.thumbnail + ')'}">
+        <img [src]="blog.thumbnail" class="image-hidden" />
+      </div>
+      <h2 [innerHTML]="blog.title"></h2>
+    </ion-item>
+  </div>
+  <ion-infinite-scroll (ionInfinite)="loadMoreBlogs($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" threshold="1%" *ngIf="page < lastPage && page != lastPage && !offlineMode"></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+  <img src="assets/imgs/spinner.svg" *ngIf="isInfiniteScroll" class="custom-infinite"  />
+</ion-content>

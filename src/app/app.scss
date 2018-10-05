@@ -1,0 +1,164 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+body {
+  font-family: Lato, sans-serif;
+  background: #6f6e68;
+}
+
+ion-app.md [padding],
+ion-app.ios [padding] {
+  padding: 0px 10px 10px 10px !important;
+}
+
+.toolbar-md,
+.toolbar-ios {
+  padding: 0;
+  height: 52px;
+}
+
+.alert-md .alert-head,
+.alert-ios .alert-head {
+  border-bottom: 1px solid #eee;
+}
+
+.alert-md .alert-message,
+.alert-ios .alert-message {
+  line-height: 1.5em;
+}
+
+.alert-md .alert-danger.alert-button,
+.alert-ios .alert-danger.alert-button {
+  width: 100% !important;
+  background-color: #ef473a;
+  font-size: 17px;
+}
+
+.alert-md .alert-danger.alert-button.activated,
+.alert-ios .alert-danger.alert-button.activated {
+  background-color: #e42112;
+  border-bottom: 1px solid #a2a2a2;
+}
+
+.alert-md .alert-danger.alert-button .button-inner,
+.alert-ios .alert-danger.alert-button .button-inner {
+  justify-content: center;
+}
+
+.alert-md .alert-success.alert-button,
+.alert-ios .alert-success.alert-button {
+  width: 100% !important;
+  background-color: #33cd5f;
+  font-size: 17px;
+}
+
+.alert-md .alert-success.alert-button.activated,
+.alert-ios .alert-success.alert-button.activated {
+  background-color: #28a54c;
+  border-bottom: 1px solid #a2a2a2;
+}
+
+.alert-md .alert-success.alert-button .button-inner,
+.alert-ios .alert-success.alert-button .button-inner {
+  justify-content: center;
+}
+
+.refresher-refreshing ion-spinner,
+.infinite-loading ion-spinner  {
+  display: none !important;
+}
+
+ion-menu {
+
+  .bar-dark .toolbar-background-md,
+  .bar-dark .toolbar-background-ios {
+    border-bottom: 1px solid #111;
+    background-color: #444444;
+  }
+
+  .toolbar-title-md,
+  .toolbar-title-ios,
+  .toolbar-title {
+    color: white;
+    font-weight: bold !important;
+  }
+
+  ion-content {
+    background-color: #6f6e68 !important;
+  }
+
+  button.item-md,
+  button.item-ios {
+    padding: 9px 38px 9px 16px;
+    color: $orange;
+    background-color: #565656 !important;
+    border-bottom: 1px solid #6f6e68;
+    font-size: 16px;
+  }
+  .item > ion-icon,
+  .item-inner > ion-icon {
+    display: none;
+  }
+  .list-md .item-block .item-inner,
+  .list-ios .item-block .item-inner {
+    border-bottom: none;
+  }
+
+  .item-md.item-block .item-inner,
+  .item-ios.item-block .item-inner {
+    padding-right: 0;
+  }
+
+  .item-md.item-block .item-inner .label-md,
+  .item-ios.item-block .item-inner .label-ios {
+    margin: 0;
+  }
+
+  .logout-item {
+    // color: #ff0649 !important;
+    font-weight: bold !important;
+  }
+
+  .login-item,
+  .signup-item {
+    color: $orange !important;
+    font-weight: bold !important;
+  }
+
+}
+
+.settings-settings {
+  margin: 20px 0;
+}
+
+.change-password-item {
+  margin: 20px 0;
+}
+
+.settings-back-buttons {
+  margin: 20px 0;
+}
+
+.settings-back-tips,
+.settings-back-blogs {
+  width: 50%;
+  text-decoration: none;
+  display: inline-block;
+  color: #696969;
+  text-align: center;
+}
+
+/* Alert box */

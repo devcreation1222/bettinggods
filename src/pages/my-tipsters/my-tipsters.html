@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar text-center>
+    <button ion-button menuToggle text-left>
+      <ion-icon name="menu" class="sandwich"></ion-icon>
+    </button>
+    <ion-title><img src="assets/imgs/logo-horse.png"></ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<img src="assets/imgs/spinner.svg" *ngIf="isRefresher" class="custom-refresher"  />
+<ion-content class="has-header my-tips dark-background">
+    <ion-refresher (ionRefresh)="getTips($event, 1, tips)">
+        <ion-refresher-content
+          pullingIcon="arrow-dropdown"
+          refreshingSpinner="bubbles"
+        >
+        </ion-refresher-content>
+      </ion-refresher>
+  <ion-list no-lines>
+    <ion-item class="item-image tip-item"
+      *ngFor="let tip of tips"
+      type="item-text-wrap"
+      [ngStyle]="{'background-image': 'linear-gradient(to top, rgba(89, 89, 89, 0) 40%,' +
+        'rgba(89, 89, 89, 0.45) 60%,' +
+        'rgba(0, 0, 0, 0.98) 100%), ' +
+        'url(' + tip.thumbnail + ')'}"
+        text-center
+    >
+      <h2 class="tip-header" >{{tip.title}}</h2>
+      <div class="tip-content">{{tip.description}}</div>
+      <button ion-button class="visit-tip-button visit-my-tips" [navPush]="myTipsterPage" [navParams]="tip.id" large>View Tips</button>
+    </ion-item>
+  </ion-list>
+</ion-content>

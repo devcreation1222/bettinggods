@@ -1,0 +1,40 @@
+<ion-content class="login-wrapper">
+  <div class="logo"></div>
+  <div class="login-inputs-wrapper" focus>
+    <h3 class="login-header">Login</h3>
+    <ion-item class="input-login">
+      <ion-label>Username or email</ion-label>
+      <ion-input type="text" [(ngModel)]="data.username" class="logins"></ion-input>
+    </ion-item>
+    <ion-item class="input-login">
+      <ion-label>Password</ion-label>
+      <ion-input type="{{data.type}}" [(ngModel)]="data.password" class="logins"></ion-input>
+    </ion-item>
+    <ion-item class="input-login">
+      <ion-label>Show Password</ion-label>
+      <ion-checkbox 
+        class="input-login logins" 
+        [(ngModel)]="data.showPass" 
+        checked="data.showPass" 
+        (click)="changeType()"
+        item-end
+      ></ion-checkbox>
+    </ion-item>
+    <ion-item class="input-login">
+      <ion-label>Remember me</ion-label>
+      <ion-checkbox 
+        class="input-login logins" 
+        [(ngModel)]="data.remember" 
+        checked="data.remember" 
+        (click)="changeType()"
+        item-end
+        focus
+      ></ion-checkbox>
+    </ion-item>
+    <button class="login-button-login logins" (click)="submit()">Login</button>
+    <div>
+      <a (click)="goSignup()"><span text-center class="login-forgot-sign-up">Sign up</span></a>
+      <a (click)="goHome()"><span text-center class="login-forgot-sign-up">Return to Blogs</span></a>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar text-center>
+    <button ion-button menuToggle text-left>
+      <ion-icon name="menu" class="sandwich"></ion-icon>
+    </button>
+    <ion-title><img src="assets/imgs/logo-horse.png"></ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="contact-wrapper dark-background">
+  <h2 text-center 
+    class="rules-main-header"
+    [hidden]="!loaded"
+    [innerHTML]="title"
+    [ngStyle]="{'background': 'linear-gradient(to bottom, transparent 0%, rgb(19, 18, 7) 100%), url(' + imgUrl + ') center center no-repeat'}"
+  ></h2>
+  <div padding [innerHTML]="content" class="gambling-responsibly-container"></div>
+</ion-content>

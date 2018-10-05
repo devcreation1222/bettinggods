@@ -1,0 +1,92 @@
+page-my-tipsters {
+  .has-refresher > .scroll-content {
+    border-top: none;
+  }
+  .dark-background {
+    background: #6f6e68;
+  }
+    ion-navbar {
+        color: $orange;
+        box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+      }
+    
+      .toolbar-background-md,
+      .toolbar-background-ios {
+        background: #696969;
+      }
+
+      .toolbar-title-md img {
+        width: 52px;
+        height: 52px;
+        transform: translate(-50%, 3px);
+      }
+      .toolbar-title-ios img {
+        width: 47px;
+        height: 47px;
+        transform: translateY(-2px);
+      }
+    
+      .ion-md-menu,
+      .ion-ios-menu {
+        color: $orange !important;
+        z-index: 100 !important;
+        font-size: 31px;
+      }
+      .my-tips{
+
+        .tip-item {
+          position: relative;
+          background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgb(19, 18, 7) 100%), #444;
+          color: #fff;
+          border: none;
+          min-height: 250px;
+          background-size: cover;
+      
+          .tip-header{
+            font-size: 1.6em;
+            margin: 25px 0 10px;
+            color: #fff;
+            text-shadow: 1px 1px 2px rgba(0,0,0,.5);
+          }
+      
+          .tip-content{
+            overflow: initial ;
+            font-size: 1.05em;
+            text-overflow: initial ;
+            white-space: normal ;
+            color: #fff;
+            margin: 10px 0 40px !important;
+            padding:10px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,.5);
+          }
+      
+          img{
+            width:90% !important;
+            margin-top: 40px !important;
+            border-radius: 3px;
+          }
+      
+      
+          .tip-profit {
+            color: $green;
+          }
+      
+          .button-md,
+          .button-ios {
+            text-transform: unset;
+            background-color: $orange-dark;
+            font-size:1.05em;
+            font-weight:bold;
+        }
+      
+        }
+    }
+    .custom-refresher {
+      position: absolute; 
+      background: transparent; 
+      left: 50%; 
+      top: 60px;
+      transform: translateX(-50%); 
+      z-index: 1000;
+    }
+}

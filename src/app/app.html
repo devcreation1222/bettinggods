@@ -1,0 +1,23 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar class="bar-dark">
+      <ion-title text-center white>Preferences</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <button menuClose ion-item class="" (click)="openHomePage()" detail-none>Home</button>
+      <button menuClose ion-item class="" (click)="openResponsiblePage()" detail-none>Be Responsible</button>
+      <button menuClose ion-item class="" (click)="openSupportPage()" detail-none>Support</button>
+      <button menuClose ion-item class="settings-settings" (click)="openSettingsPage()" detail-none>Settings</button>
+      <button menuClose ion-item class="logout-item" [hidden]="!token" (click)="logout()" detail-none>Logout</button>
+      <button menuClose ion-item class="login-item" [hidden]="token" (click)="openLoginPage()" detail-none>Login</button>
+      <button menuClose ion-item class="signup-item" [hidden]="token" (click)="openSignupPage()" detail-none>Sign up</button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

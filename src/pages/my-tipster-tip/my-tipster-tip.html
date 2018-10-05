@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar text-center>
+    <button ion-button menuToggle text-left>
+      <ion-icon name="menu" class="sandwich"></ion-icon>
+    </button>
+    <ion-title><img src="assets/imgs/logo-horse.png"></ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="blog-container-custom">
+  <div [innerHTML]="content" class="one-tip-content"></div>
+
+  <!-- <ion-card *ngFor="let comment of comments">
+    <ion-item>
+      <h4>{{comment.name}}</h4>
+      <p>{{comment.data}}</p>
+    </ion-item>
+  
+    <ion-card-content>
+      <p [innerHTML]="comment.content"></p>
+    </ion-card-content>
+  </ion-card> -->
+
+  <div class="support-wrapper">
+    <div class="support-inputs-wrapper">
+      <h3 class="login-header support-header">Add Your Comment</h3>
+      <form>
+        <ion-item class="input-support">
+          <ion-label class="input-label">Name</ion-label>
+          <ion-input type="text" [(ngModel)]="comment.name" name="name"></ion-input>
+        </ion-item>
+        <ion-item class="input-support">
+          <ion-label class="input-label">Mail</ion-label>
+          <ion-input type="text" [(ngModel)]="comment.email" name="email"></ion-input>
+        </ion-item>
+        <ion-item class="input-support">
+          <ion-label class="input-label"><span>Comment</span></ion-label>
+          <ion-textarea class="logins textarea-logins" [(ngModel)]="comment.content" name="content"></ion-textarea>
+        </ion-item>
+      </form>
+      <button class="login-button-login logins" (click)="addComment()">
+        Submit
+      </button>
+    </div>
+  </div>
+</ion-content>

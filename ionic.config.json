@@ -1,0 +1,7 @@
+{
+  "name": "Bettinggods",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

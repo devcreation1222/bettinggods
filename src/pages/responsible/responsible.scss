@@ -1,0 +1,66 @@
+page-responsible { 
+  .dark-background {
+    background: #6f6e68;
+  }
+  ion-app.md [padding], ion-app.ios [padding] {
+    padding: 10px !important;
+  }
+    ion-navbar {
+        color: $orange;
+        box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+      }
+    
+      .toolbar-background-md,
+      .toolbar-background-ios {
+        background: #696969;
+      }
+
+      .toolbar-title-md img {
+        width: 52px;
+        height: 52px;
+        transform: translate(-50%, 3px);
+      }
+      .toolbar-title-ios img {
+        width: 47px;
+        height: 47px;
+        transform: translateY(-2px);
+      }
+    
+      .ion-md-menu,
+      .ion-ios-menu {
+        color: $orange !important;
+        z-index: 100 !important;
+        font-size: 31px;
+      }
+      .gambling-responsibly-container{
+        font-size:20px;
+        line-height: 30px;
+        background: #ffffff;
+        color: $gray;
+      
+        h4{
+          font-weight:bold;
+          color:$gray;
+          margin:20px 0;
+        }
+      
+        img{
+          width:100%;
+        }
+      }
+      
+      p:first-letter{
+        padding-left: 15px;
+      }
+      
+      .rules-main-header{
+        height: 348px;
+        padding: 127px 0;
+        background-size: cover !important;
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 47px;
+        margin: 0 !important;
+      }
+      
+}

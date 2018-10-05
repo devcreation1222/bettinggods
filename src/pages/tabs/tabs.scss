@@ -1,0 +1,32 @@
+page-tabs {
+    .tabs-md .tabbar,
+    .tabs-ios .tabbar {
+        background: #696969;
+        color: $orange;
+        opacity: 1;
+    }
+
+    .tabs-md .tab-button,
+    .tabs-md .tab-button-icon,
+    .tabs-ios .tab-button,
+    .tabs-ios .tab-button-icon {
+        background: #696969;
+        color: $orange;
+    }
+
+    .tabs-md .tab-button-icon,
+    .tabs-ios .tab-button-icon {
+        font-size: 32px;
+    }
+
+    .tabs-md .tab-button[aria-selected=true],
+    .tabs-md .tab-button[aria-selected=true] .tab-button-icon,
+    .tabs-ios .tab-button[aria-selected=true],
+    .tabs-ios .tab-button[aria-selected=true] .tab-button-icon {
+        background: $orange;
+        color: #696969;
+    }
+    .tabs-ios .tab-button {
+        max-width: 500px;
+    }
+}

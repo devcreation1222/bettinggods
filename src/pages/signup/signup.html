@@ -1,0 +1,25 @@
+<!--
+  Generated template for the SignupPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content class="signup-wrapper">
+  <div class="logo"></div>
+  <div class="login-inputs-wrapper">
+    <h3 class="login-header">Sign Up</h3>
+    <ion-item class="input-login">
+      <ion-label>Full name</ion-label>
+      <ion-input type="text" [(ngModel)]="data.login" class="logins"></ion-input>
+    </ion-item>
+    <ion-item class="input-login">
+      <ion-label>Email</ion-label>
+      <ion-input type="text" [(ngModel)]="data.email" class="logins"></ion-input>
+    </ion-item>
+    <button class="login-button-login logins" (click)="register()">Sign Up</button>
+    <div>
+      <a (click)="goLogin()"><span text-center class="login-forgot-sign-up">Login</span></a>
+      <a (click)="goHome()"><span text-center class="login-forgot-sign-up">Return to Blogs</span></a>
+    </div>
+  </div>
+</ion-content>

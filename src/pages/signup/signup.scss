@@ -1,0 +1,95 @@
+page-signup {
+    .signup-wrapper {
+        background: url('../assets/imgs/signup.jpg') no-repeat center center !important;
+        background-size: cover !important;
+        z-index: -1;
+    }
+    
+    .login-inputs-wrapper{
+        background: rgba(255, 255, 255, .7);
+        width: 92%;
+        border-radius: 5px;
+        margin:0 auto;
+        overflow: hidden;
+        padding:15px 0 20px;
+    }
+    
+    .logo {
+        min-height: 100px;
+        background: url('../assets/imgs/logo.png') no-repeat center center, rgba(255, 255,255,0.4) !important;
+        background-size: contain !important;
+        margin-bottom: 10vh;
+    }
+    
+    .login-header{
+        color: #fa6800;
+        font-size: 35px;
+        text-align: center;
+        margin: 3vh 0 !important;
+    }
+    
+    .input-login{
+        background: rgba(255,255,255,.5);
+        border: none;
+    }
+    
+    .login-sub-header{
+        color: #ffffff;
+    }
+    
+    .login-button-login{
+        background: #fa6800;
+        border-radius: initial;
+        font-size: 25px;
+        color: #ffffff;
+        width: 100%;
+        border: none;
+        min-height: 45px;
+        outline: none;
+        margin: 25px 0 10px;
+    }
+    
+    .checkbox input:checked:before, .checkbox input:checked + .checkbox-icon:before {
+        background: #fa6800;
+        border-color: #fa6800;
+    }
+    
+    .login-forgot-sign-up{
+        display: inline-block;
+        width: 49%;
+        padding: 10px 15px;
+        font-size: 16px;
+        color: #464646;
+    }
+    .item-md,
+    .item-ios {
+        margin: -1px;
+    }
+    .item-input .label-md, .item-select .label-md, .item-datetime .label-md,
+    .item-input .label-ios, .item-select .label-ios, .item-datetime .label-ios {
+        color: #444;
+    }
+    .item-md.item-input .item-inner,
+    .item-ios.item-input .item-inner {
+        border-bottom: none;
+        box-shadow: unset;
+    }
+    .item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+    .item-ios.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-ios.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+        border-bottom: none;
+        box-shadow: unset;
+    }
+    .item-md.item-input.item-input-has-focus .item-inner,
+    .item-md.item-input.input-has-focus .item-inner,
+    .item-ios.item-input.item-input-has-focus .item-inner,
+    .item-ios.item-input.input-has-focus .item-inner {
+        border-bottom: none;
+        box-shadow: unset;
+    }
+    .btn-fail {
+        background-color: #f53d3d;
+    }
+    .btn-success {
+        background-color: #32db64;
+    }
+}

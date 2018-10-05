@@ -1,0 +1,79 @@
+page-my-tipster {
+  .dark-background {
+    background: #6f6e68;
+  }
+  ion-navbar {
+    color: $orange;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+  }
+
+  .toolbar-background-md,
+  .toolbar-background-ios {
+    background: #696969;
+  }
+
+  .toolbar-title-md img {
+    width: 52px;
+    height: 52px;
+    transform: translate(-50%, 3px);
+  }
+  .toolbar-title-ios img {
+    width: 47px;
+    height: 47px;
+    transform: translateY(-2px);
+  }
+  .has-refresher > .scroll-content {
+    border-top: none;
+  }
+  .ion-md-menu,
+  .ion-ios-menu {
+    color: $orange !important;
+    z-index: 100 !important;
+    font-size: 31px;
+  }
+
+  .back-button-icon-md,
+  .back-button-icon-ios {
+    color: $orange;
+    font-size: 31px;
+}
+.list-md {
+  margin: -1px 0 -25px;
+}
+  .item-md,
+  .item-ios {
+    border-bottom: 2px solid #ddd !important;
+    background: linear-gradient(to bottom, white 0%, #f6f6f6 47%, #ededed 100%);
+  }
+
+  .label-md,
+  .label-ios {
+      padding: 30px 74px 30px 20px !important;
+  }
+
+  h2 {
+      font-size: 1.07em !important;
+  }
+
+  .item > ion-icon, .item-inner > ion-icon {
+      font-size: 2.4rem;
+      color: #ccc;
+  }
+  .custom-refresher {
+    position: absolute; 
+    background: transparent; 
+    left: 50%; 
+    top: 60px;
+    transform: translateX(-50%); 
+    z-index: 1000;
+  }
+
+  .custom-infinite {
+    position: relative;
+    background: transparent; 
+    left: 50%; 
+    bottom: 30px; 
+    transform: translateX(-50%); 
+    z-index: 1000;
+  }
+}

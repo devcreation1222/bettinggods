@@ -1,0 +1,149 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+
+// Font path is used to include ionicons,
+// roboto, and noto sans fonts
+$font-path: "../assets/fonts";
+
+
+// The app direction is used to include
+// rtl styles in your app. For more info, please see:
+// http://ionicframework.com/docs/theming/rtl-support/
+$app-direction: ltr;
+
+
+@import "ionic.globals";
+
+
+// Shared Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass variables found in Ionic's source scss files.
+// To view all the possible Ionic variables, see:
+// http://ionicframework.com/docs/theming/overriding-ionic-variables/
+
+
+
+
+// Named Color Variables
+// --------------------------------------------------
+// Named colors makes it easy to reuse colors on various components.
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+$orange: #FF9500;
+$orange-dark: #fa6800;;
+$gray: #4c4c4c;
+$light-gray: #f8f8f8;
+$blue-lighter: #3e70a7;
+$blue: #155ba6;
+$green:#1CA721;
+
+$colors: (
+  primary:    #488aff,
+  secondary:  #32db64,
+  danger:     #f53d3d,
+  light:      #f4f4f4,
+  dark:       #222
+);
+
+$loading-md-background: #111;
+$loading-md-border-radius: 5px;
+
+$alert-md-head-padding-top: 15px;
+$alert-md-head-padding-bottom: 15px;
+$alert-md-head-text-align: center;
+$alert-md-title-font-size: 16px;
+
+$alert-md-message-padding-top: 10px;
+$alert-md-message-padding-end: 10px;
+$alert-md-message-padding-bottom: 10px;
+$alert-md-message-padding-start: 10px;
+$alert-md-message-text-color: #000;
+
+$alert-md-button-group-padding-top: 10px;
+$alert-md-button-group-padding-end: 10px;
+$alert-md-button-group-padding-bottom: 10px;
+$alert-md-button-group-padding-start: 10px;
+$alert-md-button-width: 100%;
+$alert-md-button-font-weight: bold;
+$alert-md-button-text-color: #fff;
+$alert-md-button-border-radius: 2px;
+$alert-md-button-text-transform: unset;
+$alert-md-button-text-align: center;
+$alert-md-button-margin-end: 0;
+
+$loading-ios-background: #111;
+$loading-ios-border-radius: 5px;
+
+$alert-ios-head-padding-top: 15px;
+$alert-ios-head-padding-bottom: 15px;
+$alert-ios-head-text-align: center;
+$alert-ios-title-font-size: 16px;
+
+$alert-ios-message-padding-top: 10px;
+$alert-ios-message-padding-end: 10px;
+$alert-ios-message-padding-bottom: 10px;
+$alert-ios-message-padding-start: 10px;
+$alert-ios-message-text-color: #000;
+
+$alert-ios-button-group-padding-top: 10px;
+$alert-ios-button-group-padding-end: 10px;
+$alert-ios-button-group-padding-bottom: 10px;
+$alert-ios-button-group-padding-start: 10px;
+$alert-ios-button-width: 100%;
+$alert-ios-button-font-weight: bold;
+$alert-ios-button-text-color: #fff;
+$alert-ios-button-border-radius: 2px;
+$alert-ios-button-text-transform: unset;
+$alert-ios-button-text-align: center;
+$alert-ios-button-margin-end: 0;
+
+$refresher-icon-color: #666;
+
+$infinite-scroll-loading-color: #6f6e68;
+// App iOS Variables
+// --------------------------------------------------
+// iOS only Sass variables can go here
+
+
+
+
+// App Material Design Variables
+// --------------------------------------------------
+// Material Design only Sass variables can go here
+
+
+
+
+// App Windows Variables
+// --------------------------------------------------
+// Windows only Sass variables can go here
+
+
+
+
+// App Theme
+// --------------------------------------------------
+// Ionic apps can have different themes applied, which can
+// then be future customized. This import comes last
+// so that the above variables are used and Ionic's
+// default are overridden.
+
+@import "ionic.theme.default";
+
+
+// Ionicons
+// --------------------------------------------------
+// The premium icon font for Ionic. For more info, please see:
+// http://ionicframework.com/docs/ionicons/
+
+@import "ionic.ionicons";
+
+
+// Fonts
+// --------------------------------------------------
+
+@import "roboto";
+@import "noto-sans";

@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar text-center>
+    <button ion-button menuToggle text-left>
+      <ion-icon name="menu" class="sandwich"></ion-icon>
+    </button>
+    <ion-title><img src="assets/imgs/logo-horse.png"></ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<img src="assets/imgs/spinner.svg" *ngIf="isRefresher" class="custom-refresher" />
+<ion-content class="blog-container-custom my-tip dark-background">
+  <ion-refresher (ionRefresh)="getTip($event, 1, tips)">
+    <ion-refresher-content
+      pullingIcon="arrow-down"
+      refreshingSpinner="bubbles"
+    >
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-list no-lines>
+    <button ion-item class="tip-item"
+      *ngFor="let tip of tips"
+      type="item-text-wrap"
+      [navPush]="myTipsterTipPage"
+      [navParams]="tip.id"
+    >
+      <h2 [innerHTML]="tip.title" class="tip-header"></h2>
+      <ion-icon name="arrow-forward" size="12" item-end></ion-icon>
+    </button>
+  </ion-list>
+  <ion-infinite-scroll (ionInfinite)="loadMoreTip($event)">
+      <ion-infinite-scroll-content loadingSpinner="bubbles" *ngIf="page < lastPage && page != lastPage && !offlineMode"></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+  <img src="assets/imgs/spinner.svg" *ngIf="isInfiniteScroll" class="custom-infinite"  />
+</ion-content>
