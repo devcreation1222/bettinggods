@@ -76,7 +76,7 @@ export class MyApp {
     public loadingCtrl: LoadingController
   ) {
     this.initializeApp();
-
+    
     this.userToken = localStorage.getItem('token');
     if (this.userToken) {
       this.token = true;
@@ -100,29 +100,28 @@ export class MyApp {
 
       const options: PushOptions = {
         android: {
-          senderID: '789143854628',
+          senderID: '716852556262',
           sound: true,
-          vibrate: true,
-          forceShow: false
+          vibrate: true
         },
-        // ios: {
-        //     alert: true,
-        //     badge: true,
-        //     sound: true
-        // }
+        ios: {
+            alert: 'true',
+            badge: true,
+            sound: 'true',
+            clearBadge: 'true'
+        }
       };
 
       const pushObject: PushObject = this.push.init(options);
 
       pushObject.on('registration').subscribe((registration: any) => {
-        console.log(registration);
         this.global.deviceToken = registration.registrationId;
         let settingsData = JSON.parse(localStorage.getItem('settingsData'));
         // update device token for blogs
         let data = {
           api_call: true,
           device_token: this.global.deviceToken,
-          device_platform: this.platform.doc().getElementsByClassName('platform-android').length ? 'GCM' : 'APNS',
+          device_platform: this.platform.is('android') ? 'FCM' : 'APNS',
           status: settingsData ? settingsData.blogNotif ? 1 : 0 : 1
         }
         let formData = new FormData();
@@ -147,7 +146,6 @@ export class MyApp {
       });
 
       pushObject.on('notification').subscribe((notification: any) => {
-        console.log(notification.additionalData);
         const msg = notification.message;
         const title = notification.title;
         const payload = notification.additionalData;
@@ -157,25 +155,21 @@ export class MyApp {
           buttons: [{
               text: 'Cancel',
               role: 'cancel',
+              cssClass: 'button-confirm',
               handler: (e) => {
                 return false;
               }
             },
             {
               text: 'CHECK',
-              cssClass: 'button-dark',
+              cssClass: 'button-confirm-dark',
               handler: (e) => {
-                return true;
+                console.log(e);
+                this.routeOnPush(payload);
               }
             }
           ]
         });
-        alert.present().then((res) => {
-          if (res) {
-            this.routeOnPush(payload);
-          }
-        })
-
       });
 
       pushObject.on('error').subscribe(error => {
@@ -204,12 +198,16 @@ export class MyApp {
           this.loading.dismiss()
         }
       }, 1000);
-      this.nav.push(MyTipsterPage, {
+      this.nav.push(TabsPage, {
+        tabId: 1,
+        blogID: '',
         recent: payload.id
       });
     } else {
       this.nav.push(TabsPage, {
-        blogID: payload.id
+        tabId: 0,
+        blogID: payload.id,
+        recent: ''
       });
     }
   }
@@ -217,16 +215,15 @@ export class MyApp {
   pushUnregister(showErrAlert) {
     const options: PushOptions = {
       android: {
-        senderID: '789143854628',
+        senderID: '716852556262',
         sound: true,
-        vibrate: true,
-        forceShow: false
+        vibrate: true
       },
-      // ios: {
-      //     alert: true,
-      //     badge: true,
-      //     sound: true
-      // }
+      ios: {
+          alert: 'true',
+          badge: true,
+          sound: 'true'
+      }
     };
 
     const pushObject: PushObject = this.push.init(options);
@@ -241,7 +238,7 @@ export class MyApp {
   }
 
   openHomePage() {
-    this.nav.setRoot(TabsPage, 0);
+    this.nav.setRoot(TabsPage, {tabId: 0, blogID: '', recent: ''});
   }
   openResponsiblePage() {
     this.nav.setRoot(ResponsiblePage);
@@ -273,13 +270,13 @@ export class MyApp {
     this.userProvider.logout(formData).subscribe((res) => {
       localStorage.removeItem('token');
       this.pushUnregister(true);
-      this.nav.setRoot(TabsPage, 0);
+      this.nav.setRoot(TabsPage, {tabId: 0, blogID: '', recent: ''});
       this.loading.dismiss();
       location.reload();
     }, (err) => {
       localStorage.removeItem('token');
       this.pushUnregister(true);
-      this.nav.setRoot(TabsPage, 0);
+      this.nav.setRoot(TabsPage, {tabId: 0, blogID: '', recent: ''});
       this.loading.dismiss();
       location.reload();
     })

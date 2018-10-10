@@ -111,6 +111,12 @@ page-login {
     .btn-success {
         background-color: #32db64;
     }
+
+    .alert-md .alert-button.button-confirm,
+    .alert-md .alert-button.button-confirm-dark {
+    color: #33cd5f;
+    }
+
     .label-md,
     .label-ios {
         color: #444;

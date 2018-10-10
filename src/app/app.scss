@@ -71,6 +71,11 @@ ion-app.ios [padding] {
   border-bottom: 1px solid #a2a2a2;
 }
 
+.alert-md .alert-button.button-confirm,
+.alert-md .alert-button.button-confirm-dark {
+  color: #33cd5f;
+}
+
 .alert-md .alert-success.alert-button .button-inner,
 .alert-ios .alert-success.alert-button .button-inner {
   justify-content: center;

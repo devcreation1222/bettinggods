@@ -3,6 +3,8 @@ import { NavController, NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { MyTipstersPage } from '../my-tipsters/my-tipsters';
 import { GlobalProvider } from '../../providers/global/global';
+import { MyTipsterPage } from '../my-tipster/my-tipster';
+import { BlogPage } from '../blog/blog';
 
 /**
  * Generated class for the TabsPage page.
@@ -27,11 +29,22 @@ export class TabsPage {
     if (this.userToken) {
       this.token = true;
     }
-    if (this.navParams.data == 1) {
+    let recent = this.navParams.get('recent');
+    let blogID = this.navParams.get('blogID');
+    if (this.navParams.get('tabId') == 1) {
       this.selectedTab = 1;
-      this.navCtrl.setRoot(MyTipstersPage);
+      if (recent) {
+        this.navCtrl.push(MyTipsterPage, recent);
+      } else {
+        this.myTipstersPage = MyTipstersPage;
+      }
     } else {
       this.selectedTab = 0;
+      if (blogID) {
+        this.navCtrl.push(BlogPage, blogID);
+      } else {
+        this.blogsPage = HomePage;
+      }
     }
   }
 

@@ -93,11 +93,11 @@ export class SettingsPage {
   }
 
   goTipsters() {
-    this.navCtrl.setRoot(TabsPage, 1);
+    this.navCtrl.setRoot(TabsPage, {tabId: 1, blogID: '', recent: ''});
   }
 
   goHome() {
-    this.navCtrl.setRoot(TabsPage, 0);
+    this.navCtrl.setRoot(TabsPage, {tabId: 0, blogID: '', recent: ''});
   }
 
   showLoading() {

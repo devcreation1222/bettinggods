@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "716852556262",
+    "firebase_url": "https://bettinggodsapppush.firebaseio.com",
+    "project_id": "bettinggodsapppush",
+    "storage_bucket": "bettinggodsapppush.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:716852556262:android:409ff0d59c6a5540",
+        "android_client_info": {
+          "package_name": "com.bettinggods.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "716852556262-8cp75ivvdn8qccqeqo7kt7p0mjuinjir.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8Taq0a_YYHinweXF59SrAXjGXgtcJars"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

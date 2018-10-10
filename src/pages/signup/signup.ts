@@ -95,7 +95,7 @@ export class SignupPage {
   }
 
   goHome() {
-    this.navCtrl.setRoot(TabsPage, 0);
+    this.navCtrl.setRoot(TabsPage, {tabId: 0, blogID: '', recent: ''});
   }
 
   showLoading() {

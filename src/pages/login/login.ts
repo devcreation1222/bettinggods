@@ -73,15 +73,15 @@ export class LoginPage {
           
           const options: PushOptions = {
             android: {
-              senderID: '789143854628',
+              senderID: '716852556262',
               sound: true,
-              vibrate: true,
-              forceShow: false
+              vibrate: true
             },
             ios: {
-                alert: true,
+                alert: 'true',
                 badge: true,
-                sound: true
+                sound: 'true',
+                clearBadge: 'true'
             }
           };
         
@@ -95,7 +95,7 @@ export class LoginPage {
             let data = {
               api_call: true,
               device_token: this.global.deviceToken,
-              device_platform: this.platform.doc().getElementsByClassName('platform-android').length ? 'GCM' : 'APNS',
+              device_platform: this.platform.is('android') ? 'FCM' : 'APNS',
               status: settingsData ? settingsData.blogNotif ? 1 : 0 : 1
             }
             let formData = new FormData();
@@ -127,35 +127,29 @@ export class LoginPage {
             let alert = this.alertCtrl.create({
               title: title,
               message: msg,
-              buttons: [
-                {
+              buttons: [{
                   text: 'Cancel',
                   role: 'cancel',
+                  cssClass: 'button-confirm',
                   handler: (e) => {
                     return false;
                   }
                 },
                 {
                   text: 'CHECK',
-                  cssClass: 'button-dark',
+                  cssClass: 'button-confirm-dark',
                   handler: (e) => {
-                    return true;
+                    this.routeOnPush(payload);
                   }
                 }
               ]
             });
-            alert.present().then((res) => {
-              if (res) {
-                this.routeOnPush(payload);
-              }
-            })
-      
           });
           
           pushObject.on('error').subscribe(error => {
             console.log('error: ', error);
           }); 
-          this.navCtrl.setRoot(TabsPage, 0);
+          this.navCtrl.setRoot(TabsPage, {tabId: 0, blogID: '', recent: ''});
           location.reload();
           this.global.checkBlogsHeight();
           this.global.checkOneBlogHeight();
@@ -181,9 +175,9 @@ export class LoginPage {
           this.loading.dismiss()
         }
       }, 1000);
-      this.navCtrl.push(MyTipsterPage, {recent: payload.id});
+      this.navCtrl.push(TabsPage, {tabId: 1, blogID: '', recent: payload.id});
     } else {
-      this.navCtrl.push(TabsPage, {blogID: payload.id});
+      this.navCtrl.push(TabsPage, {tabId: 0, blogID: payload.id, recent: ''});
     }
   }
 
@@ -199,7 +193,7 @@ export class LoginPage {
   }
 
   goHome() {
-    this.navCtrl.setRoot(TabsPage, 0);
+    this.navCtrl.setRoot(TabsPage, {tabId: 0, blogID: '', recent: ''});
   }
 
   showLoading() {
