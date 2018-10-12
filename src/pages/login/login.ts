@@ -30,7 +30,8 @@ export class LoginPage {
     api_call: true,
     showPass: false,
     type: 'password',
-    device_token: ''
+    device_token: '',
+    device_platform: ''
   }
   constructor(
     public navCtrl: NavController, 
@@ -46,6 +47,7 @@ export class LoginPage {
     if (global.deviceToken) {
       this.data.device_token = global.deviceToken;
     }
+    this.data.device_platform = this.platform.is('android') ? 'GCM' : 'APNS';
   }
 
   ionViewDidLoad() {
@@ -62,9 +64,11 @@ export class LoginPage {
     } else {
       this.showLoading();
       var formData = new FormData();
+      console.log(this.data);
       for (let key in this.data) {
         formData.append(key, this.data[key]);
       }
+      
       this.userProvider.login(formData)
         .subscribe((res:any) => {
           localStorage.setItem('token', res.cookie);
@@ -95,9 +99,10 @@ export class LoginPage {
             let data = {
               api_call: true,
               device_token: this.global.deviceToken,
-              device_platform: this.platform.is('android') ? 'FCM' : 'APNS',
+              device_platform: this.platform.is('android') ? 'GCM' : 'APNS',
               status: settingsData ? settingsData.blogNotif ? 1 : 0 : 1
             }
+            
             let formData = new FormData();
             for (let key in data) {
               formData.append(key, data[key]);

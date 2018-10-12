@@ -121,9 +121,10 @@ export class MyApp {
         let data = {
           api_call: true,
           device_token: this.global.deviceToken,
-          device_platform: this.platform.is('android') ? 'FCM' : 'APNS',
+          device_platform: this.platform.is('android') ? 'GCM' : 'APNS',
           status: settingsData ? settingsData.blogNotif ? 1 : 0 : 1
         }
+        console.log(data);
         let formData = new FormData();
         for (let key in data) {
           formData.append(key, data[key]);
