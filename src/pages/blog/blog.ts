@@ -59,7 +59,7 @@ export class BlogPage {
   }
 
   ionViewDidLoad() {
-    
+
   }
 
   loadData(blogId) {
@@ -68,7 +68,6 @@ export class BlogPage {
       this.blogProvider.getData(blogId)
         .subscribe(
           (res:any) => {
-            this.loading.dismiss();
             this.blog = res.post;
             this.title = this.sanitizer.bypassSecurityTrustHtml(res.post.title);
             this.content = this.sanitizer.bypassSecurityTrustHtml(res.post.content);
@@ -83,8 +82,10 @@ export class BlogPage {
             this.global.setEventOnA();
             this.global.checkBlogsHeight();
             this.global.checkOneBlogHeight();
+
+            this.loading.dismiss();
           },
-          err => {
+          (err) => {
             this.loading.dismiss();
           }
         );
@@ -103,7 +104,7 @@ export class BlogPage {
   }
 
   shareViaF() {
-    this.socialSharing.shareViaFacebook(this.blog.title, this.blog.url, null).then((res) => {
+    this.socialSharing.shareViaFacebook(this.blog.content, null, this.blog.url).then((res) => {
       console.log(res);
     }).catch((err) => {
       this.onError(err);
@@ -133,28 +134,6 @@ export class BlogPage {
     }).catch((err) => {
       this.onError(err);
     });
-  }
-
-  addComment() {
-    if (!localStorage.getItem('token')) {
-      this.showSuccess('Error', 'Please login to add your comment.');
-    } else {
-      if (!this.comment.name || !this.comment.email || !this.comment.content) {
-        this.showError('Response Failed', 'All fields are required.');
-      } else if (!this.comment.email.match(this.EMAIL_CHECK)) {
-        this.showError('Response Failed', 'Please indicate correct email.');
-      } else {
-        this.showLoading();
-        
-        this.global.addComment(this.blog.id, this.comment.name, this.comment.email, this.comment.content).subscribe((res) => {
-          this.loading.dismiss();
-          this.loadData(this.navParams.data);
-        }, (err) => {
-          this.loading.dismiss();
-          this.showError('Error', 'You comment has not been added.');
-        })
-      }
-    }
   }
 
   showLoading() {

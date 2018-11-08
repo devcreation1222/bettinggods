@@ -41,17 +41,11 @@ import {
   TabsPage
 } from '../pages/tabs/tabs';
 import {
-  MyTipsterPage
-} from '../pages/my-tipster/my-tipster';
-import {
   GlobalProvider
 } from '../providers/global/global';
 import {
   UserProvider
 } from '../providers/user/user';
-import {
-  BlogPage
-} from '../pages/blog/blog';
 
 @Component({
   templateUrl: 'app.html'
@@ -124,24 +118,24 @@ export class MyApp {
           device_platform: this.platform.is('android') ? 'GCM' : 'APNS',
           status: settingsData ? settingsData.blogNotif ? 1 : 0 : 1
         }
-        console.log(data);
+        
         let formData = new FormData();
         for (let key in data) {
           formData.append(key, data[key]);
         }
         this.global.updateDeviceTokenForBlogs(formData)
           .subscribe((res: any) => {
-            console.log(JSON.stringify(res));
+            
           }, (err) => {
-            console.log(JSON.stringify(err));
+            
           });
         // update device token for tips
         if (localStorage.getItem('token')) {
           this.userProvider.login(formData)
             .subscribe((res: any) => {
-              console.log(JSON.stringify(res));
+              
             }, (err) => {
-              console.log(JSON.stringify(err));
+              
             });
         }
       });
@@ -165,12 +159,12 @@ export class MyApp {
               text: 'CHECK',
               cssClass: 'button-confirm-dark',
               handler: (e) => {
-                console.log(e);
                 this.routeOnPush(payload);
               }
             }
           ]
         });
+        alert.present();
       });
 
       pushObject.on('error').subscribe(error => {
@@ -188,17 +182,7 @@ export class MyApp {
 
   routeOnPush(payload) {
     if (payload.type === 'tip') {
-      let timerId = setTimeout(function tick() {
-        if (!this.global.tipsList) {
-          timerId = setTimeout(tick, 1000);
-        }
-        if (this.loading.dismiss()) {
-          this.showLoading();
-        }
-        if (this.global.tipsList) {
-          this.loading.dismiss()
-        }
-      }, 1000);
+
       this.nav.push(TabsPage, {
         tabId: 1,
         blogID: '',

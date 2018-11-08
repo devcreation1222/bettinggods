@@ -125,4 +125,36 @@ page-my-tipster-tip {
         border-bottom: none;
         box-shadow: unset;
     }
+
+  .btn-comment {
+    background: #fa6800;
+    margin-top: 30px;
+    text-transform: initial;
+    font-weight: bold;
+  }
+  .btn-comment.button-md:hover:not(.disable-hover),
+  .btn-comment.button-ios:hover:not(.disable-hover) {
+    background-color: #fa6800;
+  }
+  .btn-comment.button-md:focus,
+  .btn-comment.button-ios:focus {
+    background-color: #fa6800;
+  }
+  .text-orange {
+    color: #fa6800;
+  }
+  textarea.text-input {
+    height: 200px;
+  }
+  .text-input-md,
+  .text-input-ios {
+    border: 1px solid #e8e8e8;
+    border-radius: 3px;
+    margin: 0;
+    padding: 5px;
+  }
+  .label-ios + ion-input .text-input, .label-ios + ion-textarea .text-input, .label-ios + .input + .cloned-input,
+  .label-md + ion-input .text-input, .label-md + ion-textarea .text-input, .label-md + .input + .cloned-input {
+    margin-left: 0;
+  }
 }

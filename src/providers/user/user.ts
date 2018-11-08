@@ -16,14 +16,17 @@ export class UserProvider {
   }
 
   register(formData: any) {
-    return this.http.post("https://members.bettinggods.com/api/registration", formData);
+    // return this.http.post("https://members.bettinggods.com/api/registration", formData);
+    return this.http.post('http://freeracing.tips/api/registration', formData);
   }
 
   login(formData: any) {
-    return this.http.post("https://members.bettinggods.com/api/login/", formData);
+    // return this.http.post("https://members.bettinggods.com/api/login/", formData);
+    return this.http.post('http://freeracing.tips/api/login/', formData);
   }
 
   logout(formData: any) {
-    return this.http.post('https://members.bettinggods.com/api/logout/', formData);
+    // return this.http.post('https://members.bettinggods.com/api/logout/', formData);
+    return this.http.post('http://freeracing.tips/api/logout/', formData);
   }
 }

@@ -11,7 +11,9 @@
 <ion-content padding class="blog-container-custom">
   <div [innerHTML]="content" class="one-tip-content"></div>
 
-  <!-- <ion-card *ngFor="let comment of comments">
+  <h3>2 Comments on Today's Selections</h3>
+  <p>Got an opinion or question about the selections above? Drop a comment below:</p>
+  <ion-card *ngFor="let comment of comments">
     <ion-item>
       <h4>{{comment.name}}</h4>
       <p>{{comment.data}}</p>
@@ -20,28 +22,18 @@
     <ion-card-content>
       <p [innerHTML]="comment.content"></p>
     </ion-card-content>
-  </ion-card> -->
+    <button class="btn-comment" ion-button (click)="postComment(comment.id)">
+      Reply
+    </button>
+  </ion-card>
 
-  <div class="support-wrapper">
-    <div class="support-inputs-wrapper">
-      <h3 class="login-header support-header">Add Your Comment</h3>
-      <form>
-        <ion-item class="input-support">
-          <ion-label class="input-label">Name</ion-label>
-          <ion-input type="text" [(ngModel)]="comment.name" name="name"></ion-input>
-        </ion-item>
-        <ion-item class="input-support">
-          <ion-label class="input-label">Mail</ion-label>
-          <ion-input type="text" [(ngModel)]="comment.email" name="email"></ion-input>
-        </ion-item>
-        <ion-item class="input-support">
-          <ion-label class="input-label"><span>Comment</span></ion-label>
-          <ion-textarea class="logins textarea-logins" [(ngModel)]="comment.content" name="content"></ion-textarea>
-        </ion-item>
-      </form>
-      <button class="login-button-login logins" (click)="addComment()">
-        Submit
-      </button>
-    </div>
+  <div>
+    <h3>Leave a Reply</h3>
+    <p class="text-orange">Logged in as {{user.nicename}}. Log out?</p>
+    <ion-label><span>Comment</span></ion-label>
+    <ion-textarea [(ngModel)]="comment.content" name="content"></ion-textarea>
+    <button class="btn-comment" ion-button (click)="postComment(0)">
+      Post Comment
+    </button>
   </div>
 </ion-content>

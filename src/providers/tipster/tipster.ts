@@ -15,11 +15,13 @@ export class TipsterProvider {
   }
 
   getTipstersCategories(formData) {
-    return this.http.post('https://members.bettinggods.com/api/get_categories', formData);
+    // return this.http.post('https://members.bettinggods.com/api/get_categories', formData);
+    return this.http.post('http://freeracing.tips/api/get_categories', formData);
   }
 
   getTipster(tipId, page, formData) {
-    return this.http.post('https://members.bettinggods.com/api/get_recent_posts?count=15&cat=' + tipId + '&page=' + page, formData);
+    // return this.http.post('https://members.bettinggods.com/api/get_recent_posts?count=15&cat=' + tipId + '&page=' + page, formData);
+    return this.http.post('http://freeracing.tips/api/get_recent_posts?count=15&cat=' + tipId + '&page=' + page, formData);
   }
 
 }

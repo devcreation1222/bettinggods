@@ -15,7 +15,7 @@
       <button ion-button class="share-button facebook" (click)="shareViaF()">
         <ion-icon name="logo-facebook"></ion-icon>&nbsp;share
       </button>
-      <button ion-buuton class="share-button twitter" (click)="shareViaTw()">
+      <button ion-button class="share-button twitter" (click)="shareViaTw()">
         <ion-icon name="logo-twitter"></ion-icon>&nbsp;twit
       </button>
       <button ion-button class="share-button mail" (click)="shareViaEm()">
@@ -29,70 +29,4 @@
   <h3 [innerHTML]="title"></h3>
   <p id="blogContent" class="blog-content" [innerHTML]="content"></p>
 
-  <ion-card *ngFor="let comment of comments">
-    <ion-item>
-      <h4>{{comment.name}}</h4>
-      <p>{{comment.date}}</p>
-    </ion-item>
-  
-    <ion-card-content>
-      <p [innerHTML]="comment.content"></p>
-    </ion-card-content>
-  </ion-card>
-<!-- 
-  <ion-card>
-      <ion-item>
-        <h4>John Doe</h4>
-        <p>2018-10-04 17:39:39</p>
-      </ion-item>
-    
-      <ion-card-content>
-        <p>Sounds interesting</p>
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card>
-        <ion-item>
-          <h4>John Doe</h4>
-          <p>2018-10-04 17:39:39</p>
-        </ion-item>
-      
-        <ion-card-content>
-          <p>Sounds interesting</p>
-        </ion-card-content>
-      </ion-card>
-
-      <ion-card>
-          <ion-item>
-            <h4>John Doe</h4>
-            <p>2018-10-04 17:39:39</p>
-          </ion-item>
-        
-          <ion-card-content>
-            <p>Sounds interesting</p>
-          </ion-card-content>
-        </ion-card> -->
-
-  <div class="support-wrapper">
-    <div class="support-inputs-wrapper">
-      <h3 class="login-header support-header">Add Your Comment</h3>
-      <form>
-        <ion-item class="input-support">
-          <ion-label class="input-label">Name</ion-label>
-          <ion-input type="text" [(ngModel)]="comment.name" name="name"></ion-input>
-        </ion-item>
-        <ion-item class="input-support">
-          <ion-label class="input-label">Mail</ion-label>
-          <ion-input type="text" [(ngModel)]="comment.email" name="email"></ion-input>
-        </ion-item>
-        <ion-item class="input-support">
-          <ion-label class="input-label"><span>Comment</span></ion-label>
-          <ion-textarea class="logins textarea-logins" [(ngModel)]="comment.content" name="content"></ion-textarea>
-        </ion-item>
-      </form>
-      <button class="login-button-login logins" (click)="addComment()">
-        Submit
-      </button>
-    </div>
-  </div>
 </ion-content>

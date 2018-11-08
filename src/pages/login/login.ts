@@ -7,7 +7,6 @@ import { UserProvider } from '../../providers/user/user';
 import { SignupPage } from '../signup/signup';
 import { TabsPage } from '../tabs/tabs';
 import { GlobalProvider } from '../../providers/global/global';
-import { MyTipsterPage } from '../my-tipster/my-tipster';
 
 /**
  * Generated class for the LoginPage page.
@@ -71,7 +70,9 @@ export class LoginPage {
       
       this.userProvider.login(formData)
         .subscribe((res:any) => {
+          console.log(res.cookie);
           localStorage.setItem('token', res.cookie);
+          localStorage.setItem('user', JSON.stringify(res.user));
           this.global.token = localStorage.getItem('token');
           this.loading.dismiss();
           
@@ -149,13 +150,14 @@ export class LoginPage {
                 }
               ]
             });
+            alert.present();
           });
           
           pushObject.on('error').subscribe(error => {
             console.log('error: ', error);
           }); 
           this.navCtrl.setRoot(TabsPage, {tabId: 0, blogID: '', recent: ''});
-          location.reload();
+          // location.reload();
           this.global.checkBlogsHeight();
           this.global.checkOneBlogHeight();
         }, err => {
@@ -169,17 +171,6 @@ export class LoginPage {
   }
   routeOnPush(payload) {
     if (payload.type === 'tip') {
-      let timerId = setTimeout(function tick() {
-        if (!this.global.tipsList) {
-          timerId = setTimeout(tick, 1000);
-        }
-        if (this.loading.dismiss()) {
-          this.showLoading();
-        }
-        if (this.global.tipsList) {
-          this.loading.dismiss()
-        }
-      }, 1000);
       this.navCtrl.push(TabsPage, {tabId: 1, blogID: '', recent: payload.id});
     } else {
       this.navCtrl.push(TabsPage, {tabId: 0, blogID: payload.id, recent: ''});

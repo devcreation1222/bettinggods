@@ -40,6 +40,34 @@ ion-app.ios [padding] {
   line-height: 1.5em;
 }
 
+.alert-md .alert-button.button-confirm,
+.alert-ios .alert-button.button-confirm,
+.alert-md .alert-button.button-confirm-dark,
+.alert-ios .alert-button.button-confirm-dark {
+  width: 50%;
+  text-align: center;
+  color: white;
+}
+
+.alert-md .alert-button.button-confirm,
+.alert-ios .alert-button.button-confirm {
+  background: #f4f4f4;
+  margin-right: 2px;
+  color: #000;
+  font-weight: 400;
+}
+
+.alert-md .alert-button.button-confirm-dark,
+.alert-ios .alert-button.button-confirm-dark {
+  background: #444444;
+  margin-left: 2px;
+}
+
+.alert-md .alert-button-group {
+  flex-wrap: unset;
+  justify-content: unset;
+}
+
 .alert-md .alert-danger.alert-button,
 .alert-ios .alert-danger.alert-button {
   width: 100% !important;
@@ -51,6 +79,11 @@ ion-app.ios [padding] {
 .alert-ios .alert-danger.alert-button.activated {
   background-color: #e42112;
   border-bottom: 1px solid #a2a2a2;
+}
+
+.alert-md .alert-button .button-inner,
+.alert-ios .alert-button .button-inner {
+  justify-content: center;
 }
 
 .alert-md .alert-danger.alert-button .button-inner,
@@ -67,14 +100,14 @@ ion-app.ios [padding] {
 
 .alert-md .alert-success.alert-button.activated,
 .alert-ios .alert-success.alert-button.activated {
-  background-color: #28a54c;
+  background-color: #33cd5f;
   border-bottom: 1px solid #a2a2a2;
 }
 
-.alert-md .alert-button.button-confirm,
-.alert-md .alert-button.button-confirm-dark {
-  color: #33cd5f;
-}
+// .alert-md .alert-button.button-confirm,
+// .alert-md .alert-button.button-confirm-dark {
+//   color: #33cd5f;
+// }
 
 .alert-md .alert-success.alert-button .button-inner,
 .alert-ios .alert-success.alert-button .button-inner {

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { NavController, NavParams, Loading, LoadingCmp, LoadingController, AlertController } from 'ionic-angular';
+import { NavController, NavParams, Loading, LoadingController, AlertController } from 'ionic-angular';
 import { GlobalProvider } from '../../providers/global/global';
 
 /**
@@ -20,11 +20,12 @@ export class MyTipsterTipPage {
   comments: any[] = [];
   comment = {
     post_id: 0,
-    name: '',
-    email: '',
-    content: ''
+    content: '',
+    parent: 0
   };
   EMAIL_CHECK = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  isLoggedIn = false;
+  user: any;
 
   constructor(
     public navCtrl: NavController, 
@@ -34,6 +35,10 @@ export class MyTipsterTipPage {
     public loadingCtrl: LoadingController,
     public alertCtrl: AlertController
   ) {
+    this.user = JSON.parse(localStorage.getItem('user'));
+    if (localStorage.getItem('token')) {
+      this.isLoggedIn = true;
+    }
     let tipId = this.navParams.data;
     this.loadData(tipId);
   }
@@ -54,20 +59,28 @@ export class MyTipsterTipPage {
     }
   }
 
-  addComment() {
-    if (!this.comment.name || !this.comment.email || !this.comment.content) {
-      this.showError('Response Failed', 'All fields are required.');
-    } else if (!this.comment.email.match(this.EMAIL_CHECK)) {
-      this.showError('Response Failed', 'Please indicate correct email.');
+  postComment(parentId) {
+    let cookie = localStorage.getItem('token');
+    if (!this.comment.content) {
+      this.showError('Response Failed', 'Comment could not be empty.');
     } else {
       this.showLoading();
       
-      this.global.addComment(this.navParams.data, this.comment.name, this.comment.email, this.comment.content).subscribe((res) => {
+      this.global.addComment(cookie, this.navParams.data, this.comment.content, parentId).subscribe((res) => {
+        console.log(res);
         this.loading.dismiss();
         this.showSuccess('Success', 'Your comment has been added successfully.');
+
+        this.comment.content = "";
       }, (err) => {
         this.loading.dismiss();
-        this.showError('Error', 'You comment has not been added.');
+        if (err.error) {
+          this.showError('Error', err.error.error);
+        } else {
+          this.showError('Error', 'Unfortunately, Your comment has not been added.');
+        }
+        this.comment.content = "";
+
       })
     }
   }

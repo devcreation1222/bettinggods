@@ -15,7 +15,8 @@ export class ChangePassProvider {
   }
 
   changePassword(formData) {
-    return this.http.post('https://members.bettinggods.com/api/change_password', formData);
+    // return this.http.post('https://members.bettinggods.com/api/change_password', formData);
+    return this.http.post('http://freeracing.tips/api/change_password', formData);
   }
 
 }

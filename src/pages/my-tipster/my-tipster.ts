@@ -36,6 +36,7 @@ export class MyTipsterPage {
     public global: GlobalProvider,
     public sanitizer: DomSanitizer
   ) {
+    this.showLoading();
     this.myTipsterTipPage = MyTipsterTipPage;
     this.getTip(0, this.page, this.tips);
   }
@@ -67,7 +68,8 @@ export class MyTipsterPage {
       .subscribe(
         (res: any) => {
           this.global.tipsList = this.global.tipsList || {};
-          res.posts.forEach((tip, i) => {
+          let posts = res.posts.reverse();
+          posts.forEach((tip, i) => {
             this.global.tipsList[i] = {
               id: tip.id,
               content: tip.content
@@ -86,7 +88,9 @@ export class MyTipsterPage {
               this.isInfiniteScroll = false;
             }
           }
-          this.loading.dismiss();
+          // if (this.tips) {
+          //   this.loading.dismiss();
+          // }
         },
         (err: any) => {
           this.loading.dismiss();

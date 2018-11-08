@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { Nav, NavController, NavParams, Loading, LoadingController, AlertController } from 'ionic-angular';
+import { NavController, NavParams, Loading, LoadingController, AlertController } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
-import { MyTipstersPage } from '../my-tipsters/my-tipsters';
 import { ChangePasswordPage } from '../change-password/change-password';
 import { GlobalProvider } from '../../providers/global/global';
 import { SettingsProvider } from '../../providers/settings/settings';
@@ -21,7 +20,8 @@ import { SettingsProvider } from '../../providers/settings/settings';
 export class SettingsPage {
   loading: Loading;
   URL = {
-    tipNotif : 'https://members.bettinggods.com/api/toggle_notification_status',
+    // tipNotif : 'https://members.bettinggods.com/api/toggle_notification_status',
+    tipNotif : 'http://freeracing.tips/api/toggle_notification_status',
     blogNotif: 'https://bettinggods.com/api/register_device_token'
   };
   settingsData = {

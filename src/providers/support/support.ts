@@ -15,7 +15,7 @@ export class SupportProvider {
   }
 
   sendSupport(name, email, subject, message) {
-    return this.http.get('http://members.bettinggods.com/api/support/?name=' + name + '&email=' + email + '&subject=' + subject + '&message=' + message);
+    return this.http.get('http://freeracing.tips/api/support/?name=' + name + '&email=' + email + '&subject=' + subject + '&message=' + message);
   }
 
 }

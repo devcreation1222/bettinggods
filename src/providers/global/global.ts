@@ -59,8 +59,9 @@ export class GlobalProvider {
     return this.http.post('https://bettinggods.com/api/register_device_token', formData);
   }
 
-  public addComment(postId, name, email, content) {
-    return this.http.get('https://www.bettinggods.com/api/add_comment?post_id=' + postId + '&name=' + name + '&email=' + email + '&content=' + content);
+  public addComment(cookie, postId, content, parentId) {
+    return this.http.get('https://freeracing.tips/api/add_comment/?api_call=true&cookie=' + cookie + '&post_id=' + postId + '&content=' + content + '&parent=' + parentId);
+    // return this.http.get('https://members.bettinggods.com/api/add_comment?post_id=' + postId + '&content=' + content + '&parent=' + parentId);
   }
 
   public checkIfAndroid(callback, appleCallback) {
